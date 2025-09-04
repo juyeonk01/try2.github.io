@@ -4,53 +4,94 @@
   padding-right: 0;  /* remove right padding */
 }
 
-.people-grid {
-  margin-left: 0;
-  margin-right: 0;
+body, button, input, select, textarea {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Helvetica, Arial, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.site-title,
+.site-nav,
+.page__title {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Helvetica, Arial, sans-serif !important;
 }
 
 
 
-.people-grid {
+/* ---------- PEOPLE PAGE LAYOUT ---------- */
+/* ===== Centered People layout ===== */
+.people-page .people-grid {
+  /* centered, even when there are 1–N cards */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.25rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+  justify-content: center;   /* centers the whole grid block */
+  justify-items: center;     /* centers each card in its column */
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 1200px;         /* keep nice page gutters; adjust if you want wider */
 }
 
-.person-card {
-  border: 1px solid var(--border-color, #eaeaea);
-  border-radius: 8px;
-  overflow: hidden;
+/* card block */
+.people-page .person-card {
+  display: block;
+  width: 100%;               /* fills its 240–280px column */
+  max-width: 280px;          /* prevents overly wide cards */
+  border-radius: 14px;
   text-decoration: none;
-  transition: transform .05s ease-in-out, box-shadow .15s ease-in-out;
-  background: var(--bg, #fff);
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  }
-
-  img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .person-meta {
-    padding: .9rem 1rem;
-
-    .person-name {
-      font-weight: 700;
-      margin: 0 0 .15rem 0;
-    }
-    .person-role {
-      color: #666;
-      font-size: .95rem;
-    }
-  }
+  background: transparent;   /* “no card” look by default */
+  transition: transform .06s ease, box-shadow .15s ease, background-color .15s ease;
 }
+.people-page .person-card:hover,
+.people-page .person-card:focus-visible {
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  outline: 1px solid rgba(0,0,0,.06);
+  transform: translateY(-2px);
+}
+
+/* square image */
+.people-page .person-card .media {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+.people-page .person-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* centered text under photo */
+.people-page .person-meta { padding: .6rem .75rem; text-align: center; }
+.people-page .person-name  { font-weight: 700; margin: 0 0 .2rem; }
+.people-page .person-role  { color: #606770; font-size: .95rem; line-height: 1.35; }
+
+/* optional: center the section headings relative to the grid width */
+.people-page h3 {
+  max-width: 1200px;
+  margin: 1.4rem auto .8rem;   /* aligns with grid block */
+  padding-inline: 1rem;
+}
+
+
+/* ---------- ALUMNI TABLE (kept compact) ---------- */
+.alumni-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.alumni-table th, .alumni-table td {
+  padding: .5rem .7rem;
+  border-bottom: 1px solid var(--border-color, #eaeaea);
+  vertical-align: top;
+}
+.alumni-table th { text-align: left; font-weight: 700; }
+.alumni-table tbody tr:nth-child(even) { background: rgba(0,0,0,.02); }
+
 
 .alumni-table {
   width: 100%;
