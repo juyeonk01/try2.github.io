@@ -1,3 +1,16 @@
+.page__content {
+  max-width: 100%;   /* expand content area */
+  padding-left: 0;   /* remove left padding */
+  padding-right: 0;  /* remove right padding */
+}
+
+.people-grid {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+
 .people-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

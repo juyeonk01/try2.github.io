@@ -18,11 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-repository: juyeonk01/try2
 
 title: Juyeon's home
 url: "https://juyeonk01.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/try2.github.io" # the subpath of your site, e.g. /blog
+baseurl: "/try2" # the subpath of your site, e.g. /blog
+repository: juyeonk01/try2
 
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 minimal_mistakes_skin: default
@@ -36,7 +36,16 @@ sass:
   sass_dir: _sass
   style: compressed
 
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
+
+
 collections:
+  pages:
+    output: true
+    permalink: /:path/ 
   people:
     output: true
     permalink: /people/:name/
