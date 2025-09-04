@@ -1,0 +1,12 @@
+---
+# Only the main Sass file needs front matter (just the dashes)
+---
+
+@charset "utf-8";
+
+/* Minimal Mistakes skin + core */
+@import "minimal-mistakes/skins/default"; // or another skin
+@import "minimal-mistakes";
+
+/* Your custom partials (no front matter in partials) */
+@import "custom";
