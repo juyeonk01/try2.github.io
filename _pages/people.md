@@ -2,7 +2,7 @@
 title: People
 permalink: /people/
 layout: single
-classes: wide people-page
+classes: people-page
 ---
 
 {% assign people_sorted = site.people | sort: 'joined' %}
